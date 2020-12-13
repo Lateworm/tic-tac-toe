@@ -81,15 +81,23 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
-  :root {
-    --color-bg-main: #d1d9e2;
-    --color-bg-ui: #ecf0f3;
-    --color-main: #2c3e50;
+  @media (prefers-color-scheme: light) {
+    :root {
+      --color-bg-main: hsl(212, 23%, 85%);
+      --color-bg-ui: hsl(206, 23%, 95%);
+      --color-main: hsl(210, 29%, 25%);
+    }
   }
 
-  body {
-    margin: 0;
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bg-main: hsl(212, 23%, 15%);
+      --color-bg-ui: hsl(206, 23%, 5%);
+      --color-main: hsl(210, 29%, 75%);
+    }
   }
+
+  body { margin: 0 }
 
   #app {
     font-family: 'Comfortaa', sans-serif;
@@ -105,13 +113,12 @@
   }
 
   button {
+    color: var(--color-main);
     background-color: var(--color-bg-ui);
     border: 0;
     cursor: pointer;
   }
-  button:disabled {
-    cursor: initial;
-  }
+  button:disabled { cursor: initial }
 
   .board {
     display: flex;
@@ -125,22 +132,14 @@
     justify-content: center;
     width: 4rem;
     height: 4rem;
-    
-    border-right: 1px solid var(--color-main);
-    border-radius: 0;
     font-family: 'Comfortaa', sans-serif;
     font-size: 3rem;
     text-transform: uppercase;
   }
-  .board button:disabled {
-    color: var(--color-main);
-  }
-  .board button:nth-child(3n) {
-    /* Remove borders from the right of the board */
-    border-right: 0;
-  }
-  .board button:nth-child(n+4) {
-    /* Add borders to the bottom of the board */
-    border-top: 1px solid var(--color-main);
-  }
+  .board button:disabled { color: var(--color-main) }
+
+  /* cell borders within the board */
+  .board button { border-right: 2px solid var(--color-bg-main) }
+  .board button:nth-child(3n) { border-right: 0 }
+  .board button:nth-child(n+4) { border-top: 2px solid var(--color-bg-main) }
 </style>

@@ -1,34 +1,36 @@
 # tic-tac-toe
 
-## Project setup
+Singleplayer Tic Tac Toe with a simple minimax AI
+
+## Setup
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compile for Development (with Hot Reloads)
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Compiles and Minify for Production
 ```
 npm run build
 ```
 
-### Run your unit tests
+### Run Unit Tests
 ```
 npm run test:unit
 ```
 
-### Run your end-to-end tests
+### Run End-to-end Tests
 ```
 npm run test:e2e
 ```
 
-### Lints and fixes files
+### Lint and Fix Files
 ```
 npm run lint
 ```
 
-### Customize configuration
+### Customize Configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
