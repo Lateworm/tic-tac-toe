@@ -1,7 +1,7 @@
 const assert = require('assert')
-import utils from '@/scripts/utils.js'
+import utils from '@/scripts/utils.ts'
 
-describe('utils.js', () => {
+describe('utils.ts', () => {
   describe('equal', () => {
     it('returns true if all elements are equal', () => {
       let result = utils.equal(['x', 'x', 'x'])

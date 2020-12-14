@@ -9,6 +9,6 @@ describe('HelloWorld.vue', () => {
       propsData: { msg }
     })
 
-    assert.equal(wrapper.text().includes(msg), true)
+    assert.strictEqual(wrapper.text().includes(msg), true)
   })
 })

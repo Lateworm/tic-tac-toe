@@ -1,4 +1,4 @@
-import u from '@/scripts/utils.js'
+// import u from '@/scripts/utils.ts'
 
 const board = {
   getEmptyStateString: () => {
@@ -21,7 +21,7 @@ const board = {
     }
   },
 
-  analyzeStateObject: (state) => {
+  analyzeStateObject: (state: String) => {
     if (state.length !== 9) {
       return `Invalid state: expected 9 characters, got ${state.length}`
     }
@@ -60,7 +60,8 @@ const board = {
     return null
   },
 
-  detectGameEnd: (stateObject) => {
+  detectGameEnd: (stateObject: any) => {
+    // TODO: type this properly, it's jsut set to any to satisfy the compiler
     const s = stateObject
    
     // if any win is found, return the marker that forms the win
@@ -82,14 +83,16 @@ const board = {
     return null;
   },
 
-  hydrate: (moves) => {
+  hydrate: (moves: any) => {
+    // TODO: type this properly, it's jsut set to any to satisfy the compiler
     let state = {
       a1: null, b1: null, c1: null,
       a2: null, b2: null, c2: null,
       a3: null, b3: null, c3: null,
     };
 
-    moves.forEach((m) => {
+    moves.forEach((m: any) => {
+      // @ts-ignore
       state[m.position] = m.marker
     });
 

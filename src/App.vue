@@ -14,8 +14,8 @@
 
 <script>
   import HelloWorld from './components/HelloWorld.vue'
-  import board from '@/scripts/board.js'
-  import bot from '@/scripts/bot.js'
+  import board from '@/scripts/board.ts'
+  import bot from '@/scripts/bot.ts'
 
   export default {
     name: 'App',

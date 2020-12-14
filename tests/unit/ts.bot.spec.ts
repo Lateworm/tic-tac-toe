@@ -1,7 +1,7 @@
 const assert = require('assert')
-import bot from '@/scripts/bot.js'
+import bot from '@/scripts/bot.ts'
 
-describe('bot.js', () => {
+describe('bot.ts', () => {
   describe('getMove', () => {
     it ('returns the best move', () => {
       assert.equal(bot.getMove({

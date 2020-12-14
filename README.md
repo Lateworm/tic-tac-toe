@@ -22,11 +22,6 @@ npm run build
 npm run test:unit
 ```
 
-### Run End-to-end Tests
-```
-npm run test:e2e
-```
-
 ### Lint and Fix Files
 ```
 npm run lint

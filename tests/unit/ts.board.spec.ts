@@ -1,7 +1,7 @@
 const assert = require('assert')
-import board from '@/scripts/board.js'
+import board from '@/scripts/board.ts'
 
-describe('board.js', () => {
+describe('board.ts', () => {
   describe('getEmptyStateString', () => {
     it('returns a string', () => {
       const result = board.getEmptyStateString()

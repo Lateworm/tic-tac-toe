@@ -1,9 +1,10 @@
-import board from '@/scripts/board.js'
+import board from '@/scripts/board.ts'
 
 let ai = 'o';
 let human = 'x';
 
-const minimax = (state, depth, isMaximizing) => {
+const minimax = (state: any, depth: Number, isMaximizing: Boolean) => {
+  // TODO: `any` typing needs upgrayedd
   let scores = {
     x: -100,
     o: 100,
@@ -12,6 +13,7 @@ const minimax = (state, depth, isMaximizing) => {
 
   let result = board.detectGameEnd(state);
   if (result !== null) {
+    // @ts-ignore
     return scores[result];
   }
 
@@ -22,6 +24,7 @@ const minimax = (state, depth, isMaximizing) => {
       if (state[n] === null) {
         const nBoard = Object.assign({}, state)
         nBoard[n] = ai
+        // @ts-ignore
         let score = minimax(nBoard, depth +1, false);
         bestScore = Math.max(score, bestScore);
       }
@@ -35,6 +38,7 @@ const minimax = (state, depth, isMaximizing) => {
       if (state[n] === null) {
         const nBoard = Object.assign({}, state)
         nBoard[n] = human
+        // @ts-ignore
         let score = minimax(nBoard, depth +1, true);
         bestScore = Math.min(score, bestScore);
       }
@@ -45,7 +49,8 @@ const minimax = (state, depth, isMaximizing) => {
 }
 
 const bot = {
-  getMove: (board) => {
+  getMove: (board: any) => {
+    // TODO: type this properly
     let bestScore = -Infinity;
     let move;
 
