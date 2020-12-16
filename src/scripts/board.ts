@@ -1,5 +1,17 @@
 // import u from '@/scripts/utils.ts'
 
+interface Board {
+  a1: string | null, b1: string | null, c1: string | null,
+  a2: string | null, b2: string | null, c2: string | null,
+  a3: string | null, b3: string | null, c3: string | null,
+}
+interface Move {
+  marker: string, position: string
+}
+
+// TODO: define type `marker` as single-character string | null,
+// Update Board and Move to user markers
+
 const board = {
   getEmptyStateString: () => {
     return '---------'
@@ -60,11 +72,8 @@ const board = {
     return null
   },
 
-  detectGameEnd: (stateObject: any) => {
-    // TODO: type this properly, it's jsut set to any to satisfy the compiler
-    const s = stateObject
-   
-    // if any win is found, return the marker that forms the win
+  detectGameEnd: (s: Board) => {
+    // if a win is found, return the marker that forms the win
     if (s.a1 && s.a1 === s.b1 && s.a1 === s.c1) { return s.a1 } // row1  
     if (s.a2 && s.a2 === s.b2 && s.a2 === s.c2) { return s.a2 } // row2    
     if (s.a3 && s.a3 === s.b3 && s.a3 === s.c3) { return s.a3 } // row3
@@ -83,15 +92,14 @@ const board = {
     return null;
   },
 
-  hydrate: (moves: any) => {
-    // TODO: type this properly, it's jsut set to any to satisfy the compiler
+  hydrate: (moves: Move[]) => {
     let state = {
       a1: null, b1: null, c1: null,
       a2: null, b2: null, c2: null,
       a3: null, b3: null, c3: null,
     };
 
-    moves.forEach((m: any) => {
+    moves.forEach((m: Move) => {
       // @ts-ignore
       state[m.position] = m.marker
     });

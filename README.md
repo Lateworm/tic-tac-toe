@@ -7,19 +7,19 @@ Singleplayer Tic Tac Toe with a simple minimax AI
 npm install
 ```
 
-### Compile for Development (with Hot Reloads)
+### Compile and Serve for Development (with Hot Reloads)
 ```
 npm run serve
 ```
 
-### Compiles and Minify for Production
+### Compile and Minify for Production
 ```
 npm run build
 ```
 
 ### Run Unit Tests
 ```
-npm run test:unit
+npm run test
 ```
 
 ### Lint and Fix Files
