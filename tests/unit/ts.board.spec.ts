@@ -78,79 +78,77 @@ describe('board.ts', () => {
   })
 
   describe('detectGameEnd', () => {
-    
-
     it('returns the winning marker if a win is found', () => {
       assert.equal(
         board.detectGameEnd({
-          a1: 'q',  b1: 'q',  c1: 'q',
+          a1: 'x',  b1: 'x',  c1: 'x',
           a2: null, b2: null, c2: null,
           a3: null, b3: null, c3: null,
         }),
-        'q'
+        'x'
       )
 
       assert.equal(
         board.detectGameEnd({
           a1: null, b1: null, c1: null,
-          a2: 'w',  b2: 'w',  c2: 'w',
+          a2: 'o',  b2: 'o',  c2: 'o',
           a3: null, b3: null, c3: null,
         }),
-        'w'
+        'o'
       )
 
       assert.equal(
         board.detectGameEnd({
           a1: null, b1: null, c1: null,
           a2: null, b2: null, c2: null,
-          a3: 'e',  b3: 'e',  c3: 'e',
+          a3: 'x',  b3: 'x',  c3: 'x',
         }),
-        'e'
+        'x'
       )
 
       assert.equal(
         board.detectGameEnd({
-          a1: 'a', b1: null,  c1: null,
-          a2: 'a', b2: null,  c2: null,
-          a3: 'a', b3: null,  c3: null,
+          a1: 'o', b1: null,  c1: null,
+          a2: 'o', b2: null,  c2: null,
+          a3: 'o', b3: null,  c3: null,
         }),
-        'a'
+        'o'
       )
 
       assert.equal(
         board.detectGameEnd({
-          a1: null, b1: 's',  c1: null,
-          a2: null, b2: 's',  c2: null,
-          a3: null, b3: 's',  c3: null,
+          a1: null, b1: 'x',  c1: null,
+          a2: null, b2: 'x',  c2: null,
+          a3: null, b3: 'x',  c3: null,
         }),
-        's'
+        'x'
       )
 
       assert.equal(
         board.detectGameEnd({
-          a1: null, b1: null,  c1: 'd',
-          a2: null, b2: null,  c2: 'd',
-          a3: null, b3: null,  c3: 'd',
+          a1: null, b1: null,  c1: 'o',
+          a2: null, b2: null,  c2: 'o',
+          a3: null, b3: null,  c3: 'o',
         }),
-        'd'
+        'o'
       )
 
       assert.equal(
         board.detectGameEnd({
-          a1: 'z',  b1: null, c1: null,
-          a2: null, b2: 'z',  c2: null,
-          a3: null, b3: null, c3: 'z',
+          a1: 'x',  b1: null, c1: null,
+          a2: null, b2: 'x',  c2: null,
+          a3: null, b3: null, c3: 'x',
         }),
-        'z'
+        'x'
       )
 
       assert.equal(
         board.detectGameEnd({
-          a1: null, b1: null, c1: 'c',
-          a2: null, b2: 'c',  c2: null,
-          a3: 'c',  b3: null, c3: null,
+          a1: null, b1: null, c1: 'o',
+          a2: null, b2: 'o',  c2: null,
+          a3: 'o',  b3: null, c3: null,
         }),
-        'c'
+        'o'
       )
 
       assert.equal(

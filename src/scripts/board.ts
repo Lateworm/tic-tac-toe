@@ -1,23 +1,24 @@
 // import u from '@/scripts/utils.ts'
 
-interface Board {
-  a1: string | null, b1: string | null, c1: string | null,
-  a2: string | null, b2: string | null, c2: string | null,
-  a3: string | null, b3: string | null, c3: string | null,
-}
-interface Move {
-  marker: string, position: string
-}
+type Marker = 'x' | 'o' | null;
+type Board = {
+  a1: Marker, b1: Marker, c1: Marker,
+  a2: Marker, b2: Marker, c2: Marker,
+  a3: Marker, b3: Marker, c3: Marker,
+};
+type Move = {
+  marker: Marker, position: string
+};
 
 // TODO: define type `marker` as single-character string | null,
-// Update Board and Move to user markers
+// Update `Board` and `Move` types to use Markers
 
 const board = {
-  getEmptyStateString: () => {
+  getEmptyStateString: (): string => {
     return '---------'
   },
 
-  getEmptyStateArray: () => {
+  getEmptyStateArray: (): null[][] => {
     return [
       [null, null, null],
       [null, null, null],
@@ -25,7 +26,7 @@ const board = {
     ]
   },
 
-  getEmptyStateObject: () => {
+  getEmptyStateObject: (): Board => {
     return {
       a1: null, b1: null, c1: null,
       a2: null, b2: null, c2: null,
@@ -33,7 +34,7 @@ const board = {
     }
   },
 
-  analyzeStateObject: (state: String) => {
+  analyzeStateObject: (state: String): string | null => {
     if (state.length !== 9) {
       return `Invalid state: expected 9 characters, got ${state.length}`
     }
@@ -72,7 +73,7 @@ const board = {
     return null
   },
 
-  detectGameEnd: (s: Board) => {
+  detectGameEnd: (s: Board): string | null => {
     // if a win is found, return the marker that forms the win
     if (s.a1 && s.a1 === s.b1 && s.a1 === s.c1) { return s.a1 } // row1  
     if (s.a2 && s.a2 === s.b2 && s.a2 === s.c2) { return s.a2 } // row2    
@@ -92,8 +93,8 @@ const board = {
     return null;
   },
 
-  hydrate: (moves: Move[]) => {
-    let state = {
+  hydrate: (moves: Move[]): Board => {
+    let state: Board = {
       a1: null, b1: null, c1: null,
       a2: null, b2: null, c2: null,
       a3: null, b3: null, c3: null,
